@@ -224,7 +224,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     if (!data.get("img").isJsonNull()) {
                                         photo = data.get("img").getAsString();
                                     }
-                                    session.createLoginSession(data.get("id").getAsString(), data.get("name").getAsString(), photo, data.get("email").getAsString());
+                                    session.createLoginSession(
+                                            data.get("id").getAsString(),
+                                            data.get("name").getAsString(),
+                                            photo,
+                                            data.get("email").getAsString(),
+                                            data.get("anggota_id").getAsString(),
+                                            data.get("keluarga_id").getAsString());
+
                                     Intent i = getBaseContext().getPackageManager().
                                             getLaunchIntentForPackage(getBaseContext().getPackageName());
                                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

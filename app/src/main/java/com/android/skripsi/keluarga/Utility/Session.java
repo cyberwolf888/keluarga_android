@@ -26,6 +26,8 @@ public class Session {
     private static final String ID_USER = "id_user";
     private static final String ID_NAME = "fullname";
     private static final String ID_EMAIL = "email";
+    private static final String ID_ANGGOTA = "angoota_id";
+    private static final String ID_KELUARGA = "keluarga_id";
     private static final String PHOTO = "photo";
 
     public Session(Context context){
@@ -37,7 +39,7 @@ public class Session {
     /**
      * Create login session
      * */
-    public void createLoginSession(String id_user, String fullname, String photo, String email){
+    public void createLoginSession(String id_user, String fullname, String photo, String email, String anggota_id, String keluarga_id){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -45,6 +47,8 @@ public class Session {
         editor.putString(ID_NAME, fullname);
         editor.putString(ID_EMAIL, email);
         editor.putString(PHOTO, photo);
+        editor.putString(ID_ANGGOTA, anggota_id);
+        editor.putString(ID_KELUARGA, keluarga_id);
         editor.commit();
     }
 
@@ -96,4 +100,13 @@ public class Session {
     public String getPhoto(){
         return pref.getString(PHOTO,"");
     }
+
+    public String getAnggotaId(){
+        return pref.getString(ID_ANGGOTA,"");
+    }
+
+    public String getKeluargaId(){
+        return pref.getString(ID_KELUARGA,"");
+    }
+
 }

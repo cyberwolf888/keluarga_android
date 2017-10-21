@@ -207,7 +207,7 @@ public class ProfileActivity extends AppCompatActivity {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
                                 try{
-                                    session.createLoginSession(session.getUserId(), name, result.get("img").getAsString(), email);
+                                    session.createLoginSession(session.getUserId(), name, result.get("img").getAsString(), email, session.getAnggotaId(), session.getKeluargaId());
                                     Intent i = getBaseContext().getPackageManager().
                                             getLaunchIntentForPackage(getBaseContext().getPackageName());
                                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -241,7 +241,7 @@ public class ProfileActivity extends AppCompatActivity {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
                                 try {
-                                    session.createLoginSession(session.getUserId(), name, result.get("img").getAsString(), email);
+                                    session.createLoginSession(session.getUserId(), name, result.get("img").getAsString(), email, session.getAnggotaId(), session.getKeluargaId());
                                     Intent i = getBaseContext().getPackageManager().
                                             getLaunchIntentForPackage(getBaseContext().getPackageName());
                                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
