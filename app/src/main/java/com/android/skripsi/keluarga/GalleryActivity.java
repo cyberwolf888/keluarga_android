@@ -1,5 +1,6 @@
 package com.android.skripsi.keluarga;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -61,6 +62,12 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
     private void loadData(){
+        final ProgressDialog pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Loading...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
         mGridData = new ArrayList<>();
         data = new JsonArray();
 
@@ -104,9 +111,9 @@ public class GalleryActivity extends AppCompatActivity {
                                     Gallery item = (Gallery) parent.getItemAtPosition(position);
                                     //Iklan item = mGridData.get(position);
 
-                                    //Intent i = new Intent(DetailKategoriActivity.this,DetailIklanActivity.class);
-                                    //i.putExtra("id_iklan",item.id_iklan);
-                                    //startActivity(i);
+                                    Intent i = new Intent(GalleryActivity.this,DetailGalleryActivity.class);
+                                    i.putExtra("id_gallery",item.id_gallery);
+                                    startActivity(i);
                                 }
                             });
 
@@ -119,6 +126,8 @@ public class GalleryActivity extends AppCompatActivity {
                                         }
                                     }).show();
                         }
+
+                        pDialog.dismiss();
 
                     }
                 });

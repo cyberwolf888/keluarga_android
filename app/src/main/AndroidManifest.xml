@@ -39,7 +39,8 @@
             android:name=".GalleryActivity"
             android:label="@string/title_activity_gallery"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TambahGalleryActivity"></activity>
+        <activity android:name=".TambahGalleryActivity" android:label="Tambah Gallery"/>
+        <activity android:name=".DetailGalleryActivity" android:label="Detail Gallery"/>
     </application>
 
 </manifest>
